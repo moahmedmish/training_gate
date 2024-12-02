@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller; // Import the base Controller
 use App\Models\Client;
 use App\Models\Gallery;
 use App\Models\Member;

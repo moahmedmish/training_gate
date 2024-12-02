@@ -13,15 +13,23 @@
                         <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">{{ __('layout.our_collection') }}</h1>
                         <nav aria-label="breadcrumb ">
                             <ul class="breadcrumb wow fadeInUp" data-wow-delay="1s">
-                                @php $cat = \App\Models\Category::find($currentCategory); @endphp
-{{--                                <li class="breadcrumb-item"><a class="breadcrumb-link" href="#0"><i class="fas fa-home icon "></i>home</a></li>--}}
+                                @php
+                                    //$cat = $currentCategory ? \App\Models\Category::find($currentCategory) : null;
+                                    $cat = null;
+                                @endphp
+
+                                {{-- Example breadcrumb home link --}}
+                                {{-- <li class="breadcrumb-item"><a class="breadcrumb-link" href="#0"><i class="fas fa-home icon"></i>home</a></li> --}}
+
                                 @if($cat)
-                                    <li class="breadcrumb-item active" style="font-size: 2rem">{{ $cat->{'name_'.app()->getLocale()} }}</li>
+                                    <li class="breadcrumb-item active" style="font-size: 2rem">
+                                        {{ $cat->{'name_'.app()->getLocale()} }}
+                                    </li>
                                 @else
-                                    <li class="breadcrumb-item active" style="font-size: 2rem">{{ __('layout.all') }}</li>
-
+                                    <li class="breadcrumb-item active" style="font-size: 2rem">
+                                        {{ __('layout.all') }}
+                                    </li>
                                 @endif
-
                             </ul>
                         </nav>
                     </div>

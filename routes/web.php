@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\LocalizationController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
@@ -19,20 +20,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [App\Http\Controllers\FrontController::class, 'about'])->name('about');
-Route::get('/services-details/{service}', [App\Http\Controllers\FrontController::class, 'serviceDetails'])->name('service-details');
-Route::get('/collection', [App\Http\Controllers\FrontController::class, 'collectionDetails'])->name('collection');
-Route::get('/collection-details/{collection}', [App\Http\Controllers\FrontController::class, 'collectionDetails'])->name('collection-details');
-Route::get('/project-details/{project}', [App\Http\Controllers\FrontController::class, 'projectDetails'])->name('project-details');
-Route::get('/contact-us', [App\Http\Controllers\FrontController::class, 'contactDetails'])->name('contact');
-Route::get('/join-us', [App\Http\Controllers\FrontController::class, 'joinDetails'])->name('join');
-Route::get('/catalog', [App\Http\Controllers\FrontController::class, 'catalog'])->name('catalog');
+Route::get('/about', [FrontController::class, 'about'])->name('about');
+Route::get('/services-details/{service}', [FrontController::class, 'serviceDetails'])->name('service-details');
+Route::get('/collection', [FrontController::class, 'collectionDetails'])->name('collection');
+Route::get('/collection-details/{collection}', [HomeController::class, 'collectionDetails'])->name('collection-details');
+Route::get('/project-details/{project}', [FrontController::class, 'projectDetails'])->name('project-details');
+Route::get('/contact-us', [FrontController::class, 'contactDetails'])->name('contact');
+Route::get('/join-us', [FrontController::class, 'joinDetails'])->name('join');
+Route::get('/catalog', [HomeController::class, 'catalog'])->name('catalog');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('locale/{lang}', [LocalizationController::class, 'changeLang'])->name('locale');
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
 

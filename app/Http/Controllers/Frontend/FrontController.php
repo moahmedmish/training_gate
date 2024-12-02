@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
+
+use App\Http\Controllers\Controller; // Import the base Controller
 
 use App\Models\Gallery;
 use App\Models\Member;
@@ -64,18 +66,16 @@ class FrontController extends Controller
 
     public function collectionDetails()
     {
-
-        $galleries = Gallery::all();
+        $galleries = Gallery::paginate(10); // Paginate the galleries (10 items per page)
         $services = Service::where('publish', 1)->get();
         $projects = Project::all();
         $page = Page::where('route_name', 'collection')->first();
-
+    
         return view('collection-details')
             ->with('galleries', $galleries)
             ->with('services', $services)
             ->with('projects', $projects)
-            ->with('page', $page)
-            ;
+            ->with('page', $page);
     }
 
 
