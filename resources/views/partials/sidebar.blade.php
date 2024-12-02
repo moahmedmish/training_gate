@@ -13,9 +13,9 @@
 
     <aside id="layout-menu" class="layout-menu menu-vertical menu active" data-simplebar>
         <ul class="menu-inner">
-            <li class="menu-title small text-uppercase">
+           <!-- <li class="menu-title small text-uppercase">
                 <span class="menu-title-text">MAIN</span>
-            </li>
+            </li>v-->
 {{--            <li class="menu-item open">--}}
 {{--                <a href="javascript:void(0);" class="menu-link menu-toggle active">--}}
 {{--                    <span class="material-symbols-outlined menu-icon">dashboard</span>--}}
@@ -88,6 +88,13 @@
 {{--            </li>--}}
 
             <li class="menu-item">
+                <a href="{{ route('pages.index') }}" class="menu-link {{ Request::is('pages') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">description</span>
+                    <span class="title">Main Menu</span>
+                </a>
+            </li>
+
+            <li class="menu-item">
                 <a href="{{ route('sliders.index') }}" class="menu-link {{ Request::is('sliders') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">slideshow</span>
                     <span class="title">Sliders</span>
@@ -95,30 +102,9 @@
             </li>
 
             <li class="menu-item">
-                <a href="{{ route('photo-settings.index') }}" class="menu-link {{ Request::is('photo-settings') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined menu-icon">photo_camera</span>
-                    <span class="title">Photo Settings</span>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="{{ route('pages.index') }}" class="menu-link {{ Request::is('pages') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined menu-icon">description</span>
-                    <span class="title">Pages</span>
-                </a>
-            </li>
-
-            <li class="menu-item">
                 <a href="{{ route('services.index') }}" class="menu-link {{ Request::is('services') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">handyman</span>
                     <span class="title">Services</span>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="{{ route('settings.index') }}" class="menu-link {{ Request::is('settings') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined menu-icon">settings</span>
-                    <span class="title">Settings</span>
                 </a>
             </li>
 
@@ -149,6 +135,22 @@
                     <span class="title">Project Photos</span>
                 </a>
             </li>
+
+            <li class="menu-item">
+                <a href="{{ route('photo-settings.index') }}" class="menu-link {{ Request::is('photo-settings') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">photo_camera</span>
+                    <span class="title">Photo Settings</span>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{ route('settings.index') }}" class="menu-link {{ Request::is('settings') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">settings</span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+
+
 
             <li class="menu-item">
                 <a href="{{ route('users.index') }}" class="menu-link {{ Request::is('projectPhotos') ? 'active' : '' }}">

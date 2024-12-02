@@ -21,7 +21,8 @@ class Page extends Model
         'summary_en',
         'description_ar',
         'description_en',
-        'publish'
+        'publish',
+        'parent_id',
     ];
 
     protected $casts = [
@@ -36,7 +37,8 @@ class Page extends Model
         'summary_en' => 'string',
         'route_name' => 'string',
         'description_ar' => 'string',
-        'description_en' => 'string'
+        'description_en' => 'string',
+        'parent_id',
     ];
 
     public static array $rules = [
@@ -54,6 +56,11 @@ class Page extends Model
         'created_at' => 'nullable|nullable',
         'updated_at' => 'nullable|nullable'
     ];
+
+    public function parent()
+    {
+        return $this->belongsTo(Page::class, 'parent_id');
+    }
 
 
 }

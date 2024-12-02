@@ -5,6 +5,7 @@
                 <th>Image</th>
                 <th>Banner1</th>
                 <th>Banner2</th>
+                <th>Parent</th>
                 <th>Title Ar</th>
 {{--                <th>Video Url</th>--}}
                 <th>Title En</th>
@@ -36,6 +37,8 @@
                             <img src="{{asset($page->banner2)}}" class="wh-40 rounded-3" alt="user">
                         </div>
                     </td>
+
+                    <td>{{ $page->parent ? $page->parent->title_ar : 'No Parent' }}</td>
 
                     <td>{{ $page->title_ar }}</td>
 {{--                    <td>{{ $page->video_url }}</td>--}}
