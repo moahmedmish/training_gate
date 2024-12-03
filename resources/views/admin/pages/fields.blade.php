@@ -103,33 +103,41 @@
 
 
 
-<div class="row">
-    <!-- Other fields... -->
-
-    <!-- On Menu Field -->
-    <div class="col-lg-6">
-        <div class="form-group mb-4" style="margin-top: 40px">
-            <div class="form-check">
-                {!! Form::hidden('on_menu', 0, ['class' => 'form-check-input']) !!}
-                {!! Form::checkbox('on_menu', '1', null, ['class' => 'form-check-input']) !!}
-                {!! Form::label('on_menu', 'Show on Menu', ['class' => 'form-check-label text-secondary']) !!}
+    <div class="row">
+        <!-- Other fields... -->
+    
+        <!-- On Menu Field -->
+        <div class="col-lg-4">
+            <div class="form-group mb-4" style="margin-top: 40px">
+                <div class="form-check">
+                    {!! Form::hidden('on_menu', 0, ['class' => 'form-check-input']) !!}
+                    {!! Form::checkbox('on_menu', '1', null, ['class' => 'form-check-input']) !!}
+                    {!! Form::label('on_menu', 'Show on Menu', ['class' => 'form-check-label text-secondary']) !!}
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Menu Order Field -->
-    <div class="col-lg-6">
-        <div class="form-group mb-4">
-            {!! Form::label('menu_order', 'Menu Order:', ['class' => 'label text-secondary']) !!}
-            <div class="form-group position-relative">
-                {!! Form::number('menu_order', null, ['class' => 'form-control text-dark ps-5 h-55', 'placeholder' => 'Enter Menu Order']) !!}
-                <i class="ri-sort-asc-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+    
+        <!-- Menu Order Field -->
+        <div class="col-lg-4">
+            <div class="form-group mb-4">
+                {!! Form::label('menu_order', 'Menu Order:', ['class' => 'label text-secondary']) !!}
+                <div class="form-group position-relative">
+                    {!! Form::number('menu_order', null, ['class' => 'form-control text-dark ps-5 h-55', 'placeholder' => 'Enter Menu Order']) !!}
+                    <i class="ri-sort-asc-line position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+                </div>
             </div>
         </div>
+    
+        <!-- Parent ID Field -->
+        <div class="col-lg-4">
+            <div class="form-group mb-4">
+                {!! Form::label('parent_id', 'Parent Page:', ['class' => 'label text-secondary']) !!}
+                {!! Form::select('parent_id', $pagesArray, isset($page) ? $page->parent_id : null, ['class' => 'form-control text-dark']) !!}
+            </div>
+        </div>
+    
+        <!-- Other fields... -->
     </div>
-
-    <!-- Other fields... -->
-</div>
 
 
 
