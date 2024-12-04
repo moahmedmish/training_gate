@@ -6,6 +6,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\SliderController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ Route::get('/project-details/{project}', [FrontController::class, 'projectDetail
 Route::get('/contact-us', [FrontController::class, 'contactDetails'])->name('contact');
 Route::get('/join-us', [FrontController::class, 'joinDetails'])->name('join');
 Route::get('/catalog', [HomeController::class, 'catalog'])->name('catalog');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('locale/{lang}', [LocalizationController::class, 'changeLang'])->name('locale');

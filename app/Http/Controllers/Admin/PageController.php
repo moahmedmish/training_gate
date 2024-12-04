@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\PageRepository;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Page;
 
 class PageController extends AppBaseController
 {
@@ -39,7 +40,12 @@ class PageController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.pages.create');
+        $pages = Page::all();
+        $pagesArray = [];
+        foreach ($pages as $page) {
+            $pagesArray[$page->id] = $page->title_ar . ' - ' . $page->title_en;
+        }
+        return view('admin.pages.create', compact('pagesArray'));
     }
 
     /**
@@ -84,14 +90,19 @@ class PageController extends AppBaseController
     public function edit($id)
     {
         $page = $this->pageRepository->find($id);
-
+        $pages = Page::all(); // Get all pages
+        $pagesArray = [];
+        foreach ($pages as $pageItem) {
+            $pagesArray[$pageItem->id] = $pageItem->title_ar . ' - ' . $pageItem->title_en;
+        }
+    
         if (empty($page)) {
             Flash::error('Page not found');
-
+    
             return redirect(route('pages.index'));
         }
-
-        return view('admin.pages.edit')->with('page', $page);
+    
+        return view('admin.pages.edit')->with('page', $page)->with('pagesArray', $pagesArray);
     }
 
     /**
