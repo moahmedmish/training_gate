@@ -6,6 +6,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\SliderController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
