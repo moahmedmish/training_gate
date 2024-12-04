@@ -734,7 +734,7 @@
                                         class="flex-grow-1 ms-2"
                                     >
                                         <h3 class="fw-medium">
-                                            Roma Admin
+                                            TGI Admin
                                         </h3>
                                         <span class="fs-12"
                                         >{{auth()->user()->name}}</span
