@@ -4,7 +4,7 @@
 {{--            <img src="{{asset(\App\Models\PhotoSetting::where('name', 'logo_' . app()->getLocale())->first()->image)}}" alt="logo-icon" style="margin-left: 48px;height: 35px;">--}}
 {{--            <img id="logo-image" src="{{asset('images/photo_settings/lightlogo.png')}}" alt="logo-icon" style="margin-left: 48px;height: 35px;" >--}}
             <img id="logo-image" src="" alt="" style="visibility: hidden">
-            <span class="logo-text fw-bold text-dark">TGI</span>
+            <span class="logo-text fw-bold text-dark">TGI Admin</span>
         </a>
         <button class="sidebar-burger-menu bg-transparent p-0 border-0 opacity-0 z-n1 position-absolute top-50 end-0 translate-middle-y" id="sidebar-burger-menu">
             <i data-feather="x"></i>
@@ -90,39 +90,39 @@
             <li class="menu-item">
                 <a href="{{ route('pages.index') }}" class="menu-link {{ Request::is('pages') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">description</span>
-                    <span class="title">Main Menu</span>
+                    <span class="title">Main Pages</span>
                 </a>
             </li>
 
             <li class="menu-item">
                 <a href="{{ route('sliders.index') }}" class="menu-link {{ Request::is('sliders') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">slideshow</span>
-                    <span class="title">Sliders</span>
+                    <span class="title">slideshow</span>
                 </a>
             </li>
 
             <li class="menu-item">
                 <a href="{{ route('services.index') }}" class="menu-link {{ Request::is('services') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">handyman</span>
-                    <span class="title">Services</span>
+                    <span class="title">Sections</span>
                 </a>
             </li>
 
             <li class="menu-item">
                 <a href="{{ route('categories.index') }}" class="menu-link {{ Request::is('categories') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">table</span>
-                    <span class="title">Categories</span>
+                    <span class="title">Gallery Categories</span>
                 </a>
             </li>
 
             <li class="menu-item">
                 <a href="{{ route('galleries.index') }}" class="menu-link {{ Request::is('galleries') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">collections</span>
-                    <span class="title">Collections</span>
+                    <span class="title">Gallery</span>
                 </a>
             </li>
 
-            <li class="menu-item">
+           <!-- <li class="menu-item">
                 <a href="{{ route('projects.index') }}" class="menu-link {{ Request::is('projects') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">work</span>
                     <span class="title">Projects</span>
@@ -136,6 +136,8 @@
                 </a>
             </li>
 
+
+
             <li class="menu-item">
                 <a href="{{ route('photo-settings.index') }}" class="menu-link {{ Request::is('photo-settings') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">photo_camera</span>
@@ -143,40 +145,19 @@
                 </a>
             </li>
 
-            <li class="menu-item">
-                <a href="{{ route('settings.index') }}" class="menu-link {{ Request::is('settings') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined menu-icon">settings</span>
-                    <span class="title">Settings</span>
-                </a>
-            </li>
-
-
-
-            <li class="menu-item">
-                <a href="{{ route('users.index') }}" class="menu-link {{ Request::is('projectPhotos') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined menu-icon">group_add</span>
-                    <span class="title">Admin Users</span>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="{{ route('contacts.index') }}" class="menu-link {{ Request::is('projectPhotos') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined menu-icon">mail</span>
-                    <span class="title">Contacts</span>
-                </a>
-            </li>
+            -->
 
             <li class="menu-item">
                 <a href="{{ route('clients.index') }}" class="menu-link {{ Request::is('projectPhotos') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">contact_page</span>
-                    <span class="title">Clients</span>
+                    <span class="title">Sponsers</span>
                 </a>
             </li>
 
             <li class="menu-item">
                 <a href="{{ route('members.index')}}" class="menu-link {{ Request::is('members') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">group</span>
-                    <span class="title">Members</span>
+                    <span class="title">Team Members</span>
                 </a>
             </li>
 
@@ -187,7 +168,27 @@
                     <span class="title">Join Us</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="{{ route('contacts.index') }}" class="menu-link {{ Request::is('projectPhotos') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">mail</span>
+                    <span class="title">Contacts</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{ route('users.index') }}" class="menu-link {{ Request::is('projectPhotos') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">group_add</span>
+                    <span class="title">Admin Users</span>
+                </a>
+            </li>
 
+
+
+            <li class="menu-item">
+                <a href="{{ route('settings.index') }}" class="menu-link {{ Request::is('settings') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">settings</span>
+                    <span class="title">General Settings</span>
+                </a>
+            </li>
 
 
             {{--            <li class="menu-item">--}}
