@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SubPageController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\LocalizationController;
@@ -56,7 +57,15 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('clients', App\Http\Controllers\Admin\ClientController::class);
     Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('joins', App\Http\Controllers\Admin\JoinController::class);
-
+    // Sub-pages routes that are scoped to a specific page
+    Route::prefix('sub_pages')->group(function () {
+        Route::get('/{page_id}', [SubPageController::class, 'index'])->name('sub_pages.index');
+        Route::get('/{page_id}/create', [SubPageController::class, 'create'])->name('sub_pages.create');
+        Route::post('/{page_id}', [SubPageController::class, 'store'])->name('sub_pages.store');
+        Route::get('/{page_id}/{sub_page}', [SubPageController::class, 'show'])->name('sub_pages.show');
+        Route::get('/{page_id}/{sub_page}/edit', [SubPageController::class, 'edit'])->name('sub_pages.edit');
+        Route::put('/{page_id}/{sub_page}', [SubPageController::class, 'update'])->name('sub_pages.update');
+        Route::delete('/{page_id}/{sub_page}', [SubPageController::class, 'destroy'])->name('sub_pages.destroy');
+    });
 
 });
-

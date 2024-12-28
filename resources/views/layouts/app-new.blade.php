@@ -46,10 +46,14 @@ $pageNamePlural = str_replace('.', ' ', $pageNamePlural);
                     !\Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Route::current()->getName(),'.show')
 
                 )
-                    @if(\Illuminate\Support\Facades\Route::current()->getName() == 'settings.index' || \Illuminate\Support\Facades\Route::current()->getName() == 'photo-settings.index' ) @else
-                <a href="{{ route($routename.'.create') }}" class="btn btn-primary">
-                    <i class="ri-add-line me-1"></i>  Add {{$pageNameSingular == 'Gallery'? 'Collection': $pageNameSingular}}
-                </a>
+                    @if(isset($page)) 
+                        <a href="{{ route($routename . '.create', ['page_id' => $page->id]) }}" class="btn btn-primary">
+                            <i class="ri-add-line me-1"></i> Add {{$pageNameSingular == 'Gallery' ? 'Collection' : $pageNameSingular}}
+                        </a>
+                    @else
+                        <a href="{{ route($routename . '.create') }}" class="btn btn-primary">
+                            <i class="ri-add-line me-1"></i> Add {{$pageNameSingular == 'Gallery' ? 'Collection' : $pageNameSingular}}
+                        </a>
                     @endif
                 @endif
 

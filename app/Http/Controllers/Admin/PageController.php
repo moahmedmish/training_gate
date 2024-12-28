@@ -28,8 +28,6 @@ class PageController extends AppBaseController
     {
         $pages = $this->pageRepository->paginate(10);
 
-        // Lazy eager load the parent relationship
-        $pages->load('parent');
 
         return view('admin.pages.index')
             ->with('pages', $pages);
