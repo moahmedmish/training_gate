@@ -29,7 +29,7 @@ return [
 
         'api_request'       => app_path('Http/Requests/API/'),
 
-        'controller'        => app_path('Http/Controllers/'),
+        'controller'        => app_path('Http/Controllers/Admin/'),
 
         'api_controller'    => app_path('Http/Controllers/API/'),
 
@@ -51,7 +51,7 @@ return [
 
         'api_test'          => base_path('tests/APIs/'),
 
-        'views'             => resource_path('views/'),
+        'views'             => resource_path('views/admin/'),
 
         'menu_file'         => resource_path('views/layouts/menu.blade.php'),
     ],

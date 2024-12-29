@@ -10,10 +10,10 @@
 </head>
 @php
     $toremove = \Illuminate\Support\Str::contains(request()->route()->getName(), '.create')? '.create':'.edit';
-//    dd($toremove);
     $routename = \Illuminate\Support\Str::replace($toremove,'', request()->route()->getName())  ;
     $pageNamePlural = ucfirst($routename);
     $pageNameSingular = ucfirst(\Illuminate\Support\Str::singular($pageNamePlural));
+    $pageNamePlural = str_replace('_', ' ', $pageNamePlural);
 @endphp
 
 <body class="boxed-size">

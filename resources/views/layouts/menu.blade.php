@@ -294,3 +294,11 @@
         <p>Joins</p>
     </a>
 </li>
+
+
+<li class="nav-item">
+    <a href="{{ route('subPages.index') }}" class="nav-link {{ Request::is('subPages*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Sub Pages</p>
+    </a>
+</li>

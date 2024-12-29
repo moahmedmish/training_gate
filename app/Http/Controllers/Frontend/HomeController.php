@@ -37,9 +37,9 @@ class HomeController extends Controller
         $galleries = Gallery::all();
         $clients = Client::all();
         $members = Member::all()->take(3);
-        $yOfExperienceCount =  Setting::where('name', 'years of experience')->first()->value;
-        $typesOfNaturalStoneCount =  Setting::where('name', 'types of natural stone')->first()->value;
-        $m2ofnaturalstoneinstockCount =  Setting::where('name', 'm2 of natural stone in stock')->first()->value;
+        $yOfExperienceCount =  Setting::where('name', 'years of experience')->first()->value ?? null;
+        $typesOfNaturalStoneCount =  Setting::where('name', 'types of natural stone')->first()->value ?? null;
+        $m2ofnaturalstoneinstockCount =  Setting::where('name', 'm2 of natural stone in stock')->first()->value ?? null;
 
         return view('home')
             ->with('sliders', $sliders)
