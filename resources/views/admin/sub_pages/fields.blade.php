@@ -19,7 +19,11 @@
 <!-- Publish Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('publish', 'Publish:') !!}
-    {!! Form::text('publish', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    <div class="form-check">
+        {!! Form::hidden('publish', 0) !!} <!-- Hidden field to submit 0 if unchecked -->
+        {!! Form::checkbox('publish', 1, null, ['class' => 'form-check-input']) !!}
+        <label class="form-check-label" for="publish">Yes</label>
+    </div>
 </div>
 
 <!-- Menu Order Field -->

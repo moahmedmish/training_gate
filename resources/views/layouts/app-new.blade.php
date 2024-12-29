@@ -33,10 +33,18 @@ $pageNamePlural = str_replace('.', ' ', $pageNamePlural);
 
 }
 
+if(\Illuminate\Support\Str::contains($pageNamePlural, '_'))
+{
+$pageNamePlural = str_replace('_', ' ', $pageNamePlural);
+
+}
+
 
 
 // dd(\Illuminate\Support\Facades\Route::current()->getName());
  $pageNameSingular = ucfirst(\Illuminate\Support\Str::singular($pageNamePlural));
+ // delete _ from $pageNameSingular
+ $pageNameSingular = str_replace('_', ' ', $pageNameSingular);
 @endphp
         <div class="main-content-container overflow-hidden">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
@@ -46,7 +54,7 @@ $pageNamePlural = str_replace('.', ' ', $pageNamePlural);
                     !\Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Route::current()->getName(),'.show')
 
                 )
-                    @if(isset($page)) 
+                    @if(isset($page))
                         <a href="{{ route($routename . '.create', ['page_id' => $page->id]) }}" class="btn btn-primary">
                             <i class="ri-add-line me-1"></i> Add {{$pageNameSingular == 'Gallery' ? 'Collection' : $pageNameSingular}}
                         </a>
