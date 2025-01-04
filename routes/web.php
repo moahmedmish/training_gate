@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\SubPageController;
+use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\LocalizationController;
@@ -67,5 +68,16 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::put('/{page_id}/{sub_page}', [SubPageController::class, 'update'])->name('sub_pages.update');
         Route::delete('/{page_id}/{sub_page}', [SubPageController::class, 'destroy'])->name('sub_pages.destroy');
     });
+    // Sections routes that are scoped to a specific page and sub-page
+    Route::prefix('sections')->group(function () {
+        Route::get('/{page_id}/{sub_page_id}', [SectionController::class, 'index'])->name('sections.index');
+        Route::get('/{page_id}/{sub_page_id}/create', [SectionController::class, 'create'])->name('sections.create');
+        Route::post('/{page_id}/{sub_page_id}', [SectionController::class, 'store'])->name('sections.store');
+        Route::get('/{page_id}/{sub_page_id}/{section_id}', [SectionController::class, 'show'])->name('sections.show');
+        Route::get('/{page_id}/{sub_page_id}/{section_id}/edit', [SectionController::class, 'edit'])->name('sections.edit');
+        Route::put('/{page_id}/{sub_page_id}/{section_id}', [SectionController::class, 'update'])->name('sections.update');
+        Route::delete('/{page_id}/{sub_page_id}/{section_id}', [SectionController::class, 'destroy'])->name('sections.destroy');
+    });
+
 
 });
