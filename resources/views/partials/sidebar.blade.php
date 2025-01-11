@@ -95,6 +95,13 @@
             </li>
 
             <li class="menu-item">
+                <a href="{{ route('sectionTypes.index') }}" class="menu-link {{ Request::is('sectionTypes*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">folder</span>
+                    <span class="title">Section Types</span>
+                </a>
+            </li>
+
+            <li class="menu-item">
                 <a href="{{ route('sliders.index') }}" class="menu-link {{ Request::is('sliders') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">slideshow</span>
                     <span class="title">slideshow</span>

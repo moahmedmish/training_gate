@@ -302,3 +302,10 @@
         <p>Sub Pages</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('sectionTypes.index') }}" class="nav-link {{ Request::is('sectionTypes*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Section Types</p>
+    </a>
+</li>

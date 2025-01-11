@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\SubPageController;
 use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\SectionTypeController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\LocalizationController;
@@ -81,3 +82,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
 });
+Route::resource('section-types', SectionTypeController::class, [
+    'names' => [
+        'index' => 'sectionTypes.index',
+        'create' => 'sectionTypes.create',
+        'store' => 'sectionTypes.store',
+        'show' => 'sectionTypes.show',
+        'edit' => 'sectionTypes.edit',
+        'update' => 'sectionTypes.update',
+        'destroy' => 'sectionTypes.destroy',
+    ],
+]);
