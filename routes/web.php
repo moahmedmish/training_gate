@@ -80,16 +80,16 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::delete('/{page_id}/{sub_page_id}/{section_id}', [SectionController::class, 'destroy'])->name('sections.destroy');
     });
 
+    Route::resource('section-types', SectionTypeController::class, [
+        'names' => [
+            'index' => 'sectionTypes.index',
+            'create' => 'sectionTypes.create',
+            'store' => 'sectionTypes.store',
+            'show' => 'sectionTypes.show',
+            'edit' => 'sectionTypes.edit',
+            'update' => 'sectionTypes.update',
+            'destroy' => 'sectionTypes.destroy',
+        ],
+    ]);
 
 });
-Route::resource('section-types', SectionTypeController::class, [
-    'names' => [
-        'index' => 'sectionTypes.index',
-        'create' => 'sectionTypes.create',
-        'store' => 'sectionTypes.store',
-        'show' => 'sectionTypes.show',
-        'edit' => 'sectionTypes.edit',
-        'update' => 'sectionTypes.update',
-        'destroy' => 'sectionTypes.destroy',
-    ],
-]);
