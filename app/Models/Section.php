@@ -18,7 +18,8 @@ class Section extends Model
         'order',
         'title_en',
         'title_ar',
-        'name'
+        'name',
+        'section_type_id'
     ];
 
     protected $casts = [
@@ -38,6 +39,7 @@ class Section extends Model
         'content_en' => 'required|string|max:65535',
         'image_path' => 'file|mimes:jpg,jpeg,bmp,png|max:10240|nullable',
         'is_publish' => 'required|boolean',
+        'section_type_id'=> 'required:integer|exists:section_types,id',
         'order' => 'required',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

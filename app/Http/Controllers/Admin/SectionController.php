@@ -11,6 +11,7 @@ use Flash;
 use App\Models\Page;
 use App\Models\SubPage;
 use App\Models\Section;
+use App\Models\SectionType;
 
 class SectionController extends AppBaseController
 {
@@ -40,8 +41,9 @@ class SectionController extends AppBaseController
     {
         $page = Page::findOrFail($page_id);
         $subPage = SubPage::findOrFail($sub_page_id);
-    
-        return view('admin.sections.create', compact('page', 'subPage'));
+        $sectionTypes = SectionType::all(); // Fetch all section types
+
+        return view('admin.sections.create', compact('page', 'subPage', 'sectionTypes'));
     }
 
     /**
@@ -108,7 +110,9 @@ class SectionController extends AppBaseController
 
         $page = Page::findOrFail($page_id);
         $subPage = SubPage::findOrFail($sub_page_id);
-        return view('admin.sections.edit', compact('section', 'page', 'subPage'));
+        $sectionTypes = SectionType::pluck('name', 'id'); // Fetch all section types
+
+        return view('admin.sections.edit', compact('section', 'page', 'subPage', 'sectionTypes'));
     }
 
     /**

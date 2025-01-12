@@ -16,7 +16,10 @@
     {!! Form::label('name', 'Name:') !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
 </div>
-
+<div class="form-group col-sm-12 col-lg-12">
+    {!! Form::label('section_type', 'Section Type:') !!}
+    {!! Form::select('section_type_id', $sectionTypes, null, ['class' => 'form-control', 'required']) !!}
+</div>
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('title_en', 'Title En:') !!}
     {!! Form::text('title_en', null, ['class' => 'form-control', 'required']) !!}
