@@ -32,9 +32,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $menus = Page::all();
+        // If you need to add conditions
+        $menus = Page::select('pages.*')
+            ->with(['subPages' => function($query) {
+                $query->select('sub_pages.*', 'page_id')
+                ->where('publish', '1');  // Example condition
+            }])
+            ->where('pages.publish', '1')
+            ->where('on_menu', '1')
+            ->orderBy('pages.menu_order')
+            ->get()->toArray();
+
         $sliders = Slider::where('publish', 1)->get();
-        $projects = Project::all();
+        $projects = Project::all()->toArray();
         $services = Service::where('publish', 1)->get();
         $galleries = Gallery::all();
         // get all setting
@@ -53,13 +63,27 @@ class HomeController extends Controller
             ->with('projects', $projects)
             ->with('clients', $clients)
             ->with('members', $members)
+            ->with('menus', $menus)
             ->with('facts_settings', $facts_setting)
             ->with('global_settings',$global_setting)
             ;
     }
 
 
+    public function showmain()
+    {
+        dd("main");
+    }
+
+    public function showsub()
+    {
+        dd("sub page");
+    }
+
+
 }
+
+
 
 //
 //namespace App\Http\Controllers;

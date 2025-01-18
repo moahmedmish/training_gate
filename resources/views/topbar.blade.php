@@ -10,6 +10,11 @@
 
         <div class="topbar-right">
             <div class="topbar-right">
+                @if(app()->getLocale() == 'ar')
+                    <span class="topbar-widget"><a href="{{route('locale', ['en'])}}">English</a></span>
+                @else
+                    <span class="topbar-widget"><a href="{{route('locale', ['ar'])}}">العربية</a></span>
+                @endif
                 <span class="topbar-widget"><a href="#">Privacy policy</a></span>
                 <span class="topbar-widget"><a href="#">Customer Support</a></span>
                 <span class="topbar-widget"><a href="#">FAQ</a></span>

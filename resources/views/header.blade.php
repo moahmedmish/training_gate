@@ -2,7 +2,7 @@
 <html lang="zxx">
 <head>
     <meta charset="utf-8"/>
-    <title>@yield('title', {{}})</title>
+    <title>@yield('title', 'Priva - Insurance Company Website Template')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="@yield('meta_description', 'Priva - Insurance Company Website Template')" name="description"/>
     <meta content="@yield('meta_keywords', '')" name="keywords"/>

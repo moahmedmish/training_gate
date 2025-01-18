@@ -32,6 +32,9 @@ Route::get('/project-details/{project}', [FrontController::class, 'projectDetail
 Route::get('/contact-us', [FrontController::class, 'contactDetails'])->name('contact');
 Route::get('/join-us', [FrontController::class, 'joinDetails'])->name('join');
 Route::get('/catalog', [HomeController::class, 'catalog'])->name('catalog');
+
+Route::get('pages/{slug}', [FrontController::class, 'showmain'])->name('pages.show');
+Route::get('subpages/{slug}', [FrontController::class, 'showsub'])->name('pages.showsub');
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
