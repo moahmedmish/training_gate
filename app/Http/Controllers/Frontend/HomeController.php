@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller; // Import the base Controller
 use App\Models\Client;
 use App\Models\Gallery;
 use App\Models\Member;
+use App\Models\Page;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\Setting;
@@ -31,10 +32,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $menus = Page::all();
         $sliders = Slider::where('publish', 1)->get();
         $projects = Project::all();
         $services = Service::where('publish', 1)->get();
         $galleries = Gallery::all();
+        // get all setting
+        $facts_setting = Setting::where('path', 'facts')->get()->toArray();
+        $global_setting = Setting::where('path', 'global')->get()->toArray();
         $clients = Client::all();
         $members = Member::all()->take(3);
         $yOfExperienceCount =  Setting::where('name', 'years of experience')->first()->value ?? null;
@@ -48,10 +53,8 @@ class HomeController extends Controller
             ->with('projects', $projects)
             ->with('clients', $clients)
             ->with('members', $members)
-            ->with('yOfExperienceCount', $yOfExperienceCount)
-            ->with('typesOfNaturalStoneCount', $typesOfNaturalStoneCount)
-            ->with('m2ofnaturalstoneinstockCount', $m2ofnaturalstoneinstockCount)
-
+            ->with('facts_settings', $facts_setting)
+            ->with('global_settings',$global_setting)
             ;
     }
 
