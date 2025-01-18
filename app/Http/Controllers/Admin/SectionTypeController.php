@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CreateSectionTypeRequest;
 use App\Http\Requests\UpdateSectionTypeRequest;
@@ -26,7 +26,7 @@ class SectionTypeController extends AppBaseController
     {
         $sectionTypes = $this->sectionTypeRepository->paginate(10);
 
-        return view('section_types.index')
+        return view('admin.section_types.index')
             ->with('sectionTypes', $sectionTypes);
     }
 
@@ -35,7 +35,7 @@ class SectionTypeController extends AppBaseController
      */
     public function create()
     {
-        return view('section_types.create');
+        return view('admin.section_types.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class SectionTypeController extends AppBaseController
             return redirect(route('sectionTypes.index'));
         }
 
-        return view('section_types.show')->with('sectionType', $sectionType);
+        return view('admin.section_types.show')->with('sectionType', $sectionType);
     }
 
     /**
@@ -81,7 +81,7 @@ class SectionTypeController extends AppBaseController
             return redirect(route('sectionTypes.index'));
         }
 
-        return view('section_types.edit')->with('sectionType', $sectionType);
+        return view('admin.section_types.edit')->with('sectionType', $sectionType);
     }
 
     /**
