@@ -90,7 +90,7 @@
             <li class="menu-item">
                 <a href="{{ route('pages.index') }}" class="menu-link {{ Request::is('pages') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">description</span>
-                    <span class="title">Main Pages</span>
+                    <span class="title">Menu</span>
                 </a>
             </li>
 
@@ -108,12 +108,12 @@
                 </a>
             </li>
 
-            <li class="menu-item">
+          <!--  <li class="menu-item">
                 <a href="{{ route('services.index') }}" class="menu-link {{ Request::is('services') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">handyman</span>
                     <span class="title">Sections</span>
                 </a>
-            </li>
+            </li>-->
 
             <li class="menu-item">
                 <a href="{{ route('categories.index') }}" class="menu-link {{ Request::is('categories') ? 'active' : '' }}">
