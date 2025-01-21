@@ -8,8 +8,17 @@
                         <!-- logo begin -->
                         <div id="logo">
                             <a href="{{ url('/') }}">
-                                <img alt="Logo Light" class="logo" src="{{ asset('front/images/logo-light.png') }}" />
-                                <img alt="Logo Dark" class="logo-2" src="{{ asset('front/images/logo.png') }}" />
+                                @foreach ($logos as $logo)
+                                    @if ($logo['name'] === 'logo_en' && app()->getLocale() != 'ar')
+                                        <img alt="Logo Light" width="50%" height="50%" class="logo" src="{{ asset($logo['image']) }}" />
+                                        <img alt="Logo Dark" width="50%" height="50%" class="logo-2" src="{{ asset($logo['image']) }}" />
+                                    @elseif ($logo['name'] === 'logo_ar' && app()->getLocale() == 'ar')
+                                        <img alt="Logo Light" width="50%" height="50%" class="logo" src="{{ asset($logo['image']) }}" />
+                                        <img alt="Logo Dark" width="50%" height="50%" class="logo-2" src="{{ asset($logo['image']) }}" />
+                                    @endif
+                                @endforeach
+
+
                             </a>
                         </div>
                         <!-- logo close -->
@@ -39,8 +48,14 @@
                         </ul>
                     </div>
                     <div class="de-flex-col">
-                        <div class="h-phone"><span>Need&nbsp;Help?</span><i
-                                    class="fa fa-phone id-color-secondary"></i> 1 200 300 9000
+
+                        <div class="h-phone"><span>Need&nbsp;Help?</span><i class="fa fa-phone id-color-secondary"></i>
+                            @foreach ($global_settings as $item)
+                                @if ($item['name'] === 'phone')
+                                    {{ $item['value'] }}
+                                @endif
+                            @endforeach
+
                         </div>
                         <span id="menu-btn"></span>
                     </div>

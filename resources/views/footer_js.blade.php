@@ -15,7 +15,13 @@
 <script src="{{ asset('front/js/typed.js') }}"></script>
 <script src="{{ asset('front/js/jquery.countTo.js') }}"></script>
 <script src="{{ asset('front/js/jquery.countdown.js') }}"></script>
-<script src="{{ asset('front/js/designesia.js') }}"></script>
+
+@if(app()->getLocale() == 'ar')
+    <script src="{{ asset('front/js/designesia_ar.js') }}"></script>
+@else
+    <script src="{{ asset('front/js/designesia.js') }}"></script>
+@endif
+
 
 <!-- Revolution Slider Core JS -->
 <script src="{{ asset('front/revolution/js/jquery.themepunch.tools.min.js?rev=5.0') }}"></script>

@@ -2,9 +2,13 @@
     <div class="container">
         <div class="topbar-left sm-hide">
                         <span class="topbar-widget tb-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            @foreach ($global_settings as $item)
+                                @if (in_array($item['name'], ['facebook', 'twitter', 'instagram']))
+                                    <a href="{{ $item['value'] }}" target="_blank">
+                                     <i class="fa fa-{{ $item['name'] }}"></i>
+                                  </a>
+                                @endif
+                            @endforeach
                         </span>
         </div>
 

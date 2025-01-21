@@ -11,6 +11,7 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Slider;
+use App\Models\PhotoSetting;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -51,22 +52,21 @@ class HomeController extends Controller
         $facts_setting = Setting::where('path', 'facts')->get()->toArray();
         $global_setting = Setting::where('path', 'global')->get()->toArray();
         $clients = Client::all();
+        $logos = PhotoSetting::all()->toArray();
+
         $members = Member::all()->take(3);
-        $yOfExperienceCount =  Setting::where('name', 'years of experience')->first()->value ?? null;
-        $typesOfNaturalStoneCount =  Setting::where('name', 'types of natural stone')->first()->value ?? null;
-        $m2ofnaturalstoneinstockCount =  Setting::where('name', 'm2 of natural stone in stock')->first()->value ?? null;
 
         return view('home')
             ->with('sliders', $sliders)
-            ->with('services', $services)
-            ->with('galleries', $galleries)
-            ->with('projects', $projects)
+            //->with('services', $services)
+            //->with('galleries', $galleries)
+            //->with('projects', $projects)
             ->with('clients', $clients)
-            ->with('members', $members)
+            //->with('members', $members)
+            ->with('logos', $logos)
             ->with('menus', $menus)
             ->with('facts_settings', $facts_setting)
-            ->with('global_settings',$global_setting)
-            ;
+            ->with('global_settings',$global_setting);
     }
 
 

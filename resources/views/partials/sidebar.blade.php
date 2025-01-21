@@ -197,6 +197,13 @@
                 </a>
             </li>
 
+            <li class="menu-item">
+                <a href="{{ route('photo-settings.index') }}" class="menu-link {{ Request::is('photo-settings') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">photo_camera</span>
+                    <span class="title">Logo Settings</span>
+                </a>
+            </li>
+
 
             {{--            <li class="menu-item">--}}
 {{--                <a href="{{ url('admin/to-do-list') }}" class="menu-link {{ Request::is('to-do-list') ? 'active' : '' }}">--}}
