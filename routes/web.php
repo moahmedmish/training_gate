@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\SubPageController;
+use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\SectionTypeController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\LocalizationController;
@@ -30,6 +32,9 @@ Route::get('/project-details/{project}', [FrontController::class, 'projectDetail
 Route::get('/contact-us', [FrontController::class, 'contactDetails'])->name('contact');
 Route::get('/join-us', [FrontController::class, 'joinDetails'])->name('join');
 Route::get('/catalog', [HomeController::class, 'catalog'])->name('catalog');
+
+Route::get('pages/{slug}', [FrontController::class, 'showmain'])->name('pages.show');
+Route::get('subpages/{slug}', [FrontController::class, 'showsub'])->name('pages.showsub');
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
@@ -67,5 +72,27 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::put('/{page_id}/{sub_page}', [SubPageController::class, 'update'])->name('sub_pages.update');
         Route::delete('/{page_id}/{sub_page}', [SubPageController::class, 'destroy'])->name('sub_pages.destroy');
     });
+    // Sections routes that are scoped to a specific page and sub-page
+    Route::prefix('sections')->group(function () {
+        Route::get('/{page_id}/{sub_page_id}', [SectionController::class, 'index'])->name('sections.index');
+        Route::get('/{page_id}/{sub_page_id}/create', [SectionController::class, 'create'])->name('sections.create');
+        Route::post('/{page_id}/{sub_page_id}', [SectionController::class, 'store'])->name('sections.store');
+        Route::get('/{page_id}/{sub_page_id}/{section_id}', [SectionController::class, 'show'])->name('sections.show');
+        Route::get('/{page_id}/{sub_page_id}/{section_id}/edit', [SectionController::class, 'edit'])->name('sections.edit');
+        Route::put('/{page_id}/{sub_page_id}/{section_id}', [SectionController::class, 'update'])->name('sections.update');
+        Route::delete('/{page_id}/{sub_page_id}/{section_id}', [SectionController::class, 'destroy'])->name('sections.destroy');
+    });
+
+    Route::resource('section-types', SectionTypeController::class, [
+        'names' => [
+            'index' => 'sectionTypes.index',
+            'create' => 'sectionTypes.create',
+            'store' => 'sectionTypes.store',
+            'show' => 'sectionTypes.show',
+            'edit' => 'sectionTypes.edit',
+            'update' => 'sectionTypes.update',
+            'destroy' => 'sectionTypes.destroy',
+        ],
+    ]);
 
 });

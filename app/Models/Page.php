@@ -47,6 +47,10 @@ class Page extends Model
         'on_menu' => 'nullable|integer',
     ];
 
+    public function subPages()
+    {
+        return $this->hasMany(SubPage::class, 'page_id'); // Assuming 'page_id' is the foreign key in sub_pages table
+    }
 
 
 }

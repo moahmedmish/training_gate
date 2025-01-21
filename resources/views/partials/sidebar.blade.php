@@ -90,7 +90,14 @@
             <li class="menu-item">
                 <a href="{{ route('pages.index') }}" class="menu-link {{ Request::is('pages') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">description</span>
-                    <span class="title">Main Pages</span>
+                    <span class="title">Menu</span>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{ route('sectionTypes.index') }}" class="menu-link {{ Request::is('sectionTypes*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">folder</span>
+                    <span class="title">Section Types</span>
                 </a>
             </li>
 
@@ -101,12 +108,12 @@
                 </a>
             </li>
 
-            <li class="menu-item">
+          <!--  <li class="menu-item">
                 <a href="{{ route('services.index') }}" class="menu-link {{ Request::is('services') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">handyman</span>
                     <span class="title">Sections</span>
                 </a>
-            </li>
+            </li>-->
 
             <li class="menu-item">
                 <a href="{{ route('categories.index') }}" class="menu-link {{ Request::is('categories') ? 'active' : '' }}">
@@ -187,6 +194,13 @@
                 <a href="{{ route('settings.index') }}" class="menu-link {{ Request::is('settings') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">settings</span>
                     <span class="title">General Settings</span>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{ route('photo-settings.index') }}" class="menu-link {{ Request::is('photo-settings') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">photo_camera</span>
+                    <span class="title">Logo Settings</span>
                 </a>
             </li>
 

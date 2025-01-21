@@ -46,6 +46,10 @@
                             ]) !!}
                         </div>
                         {!! Form::close() !!}
+                        <a href="{{ route('sections.index', ['page_id' => $page->id, 'sub_page_id' => $subPage->id]) }}" 
+                            class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
+                            <i class="material-symbols-outlined fs-16 text-info">folder</i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

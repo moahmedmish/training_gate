@@ -54,7 +54,11 @@ $pageNamePlural = str_replace('_', ' ', $pageNamePlural);
                     !\Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Route::current()->getName(),'.show')
 
                 )
-                    @if(isset($page))
+                    @if(isset($page) && isset($subPage))
+                        <a href="{{ route($routename . '.create', ['page_id' => $page->id, 'sub_page_id' => $subPage->id]) }}" class="btn btn-primary">
+                            <i class="ri-add-line me-1"></i> Add {{$pageNameSingular == 'Gallery' ? 'Collection' : $pageNameSingular}}
+                        </a>
+                    @elseif(isset($page))
                         <a href="{{ route($routename . '.create', ['page_id' => $page->id]) }}" class="btn btn-primary">
                             <i class="ri-add-line me-1"></i> Add {{$pageNameSingular == 'Gallery' ? 'Collection' : $pageNameSingular}}
                         </a>
