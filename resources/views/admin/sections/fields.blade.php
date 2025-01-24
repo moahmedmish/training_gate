@@ -17,9 +17,17 @@
     {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
 </div>
 <div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('section_type', 'Section Type:') !!}
-    {!! Form::select('section_type_id', $sectionTypes, null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('section_type_id', 'Section Type:') !!}
+    {!! Form::select(
+        'section_type_id',
+        $sectionTypes,
+        isset($section) ? $section->section_type_id : null, // Pre-select for edit, null for add
+        ['class' => 'form-control', 'placeholder' => 'Select a type', 'required']
+    ) !!}
 </div>
+
+
+
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('title_en', 'Title En:') !!}
     {!! Form::text('title_en', null, ['class' => 'form-control', 'required']) !!}

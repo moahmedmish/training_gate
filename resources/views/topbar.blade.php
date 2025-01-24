@@ -13,17 +13,15 @@
         </div>
 
         <div class="topbar-right">
-            <div class="topbar-right">
-                @if(app()->getLocale() == 'ar')
-                    <span class="topbar-widget"><a href="{{route('locale', ['en'])}}">English</a></span>
-                @else
-                    <span class="topbar-widget"><a href="{{route('locale', ['ar'])}}">العربية</a></span>
-                @endif
-                <span class="topbar-widget"><a href="#">Privacy policy</a></span>
-                <span class="topbar-widget"><a href="#">Customer Support</a></span>
-                <span class="topbar-widget"><a href="#">FAQ</a></span>
-            </div>
+            <span class="topbar-widget">
+                <a href="{{ route('locale', [app()->getLocale() == 'ar' ? 'en' : 'ar']) }}"
+                   class="btn btn-primary btn-lg"
+                   style="font-size: 18px; padding: 3px 20px;border-radius: 5px;text-transform: uppercase;font-weight: 400;background-color: #ffde00">
+                    {{ app()->getLocale() == 'ar' ? 'English' : 'العربية' }}
+                </a>
+            </span>
         </div>
+
         <div class="clearfix"></div>
     </div>
 </div>

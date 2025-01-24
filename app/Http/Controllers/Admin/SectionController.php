@@ -102,18 +102,24 @@ class SectionController extends AppBaseController
      */
     public function edit($page_id, $sub_page_id, $id)
     {
+        // Fetch the section to edit
         $section = $this->sectionRepository->find($id);
         if (empty($section) || $section->sub_page_id != $sub_page_id) {
             Flash::error('Section not found');
             return redirect(route('sections.index', ['page_id' => $page_id, 'sub_page_id' => $sub_page_id]));
         }
 
+        // Fetch related page and sub-page
         $page = Page::findOrFail($page_id);
         $subPage = SubPage::findOrFail($sub_page_id);
-        $sectionTypes = SectionType::pluck('name', 'id'); // Fetch all section types
 
+        // Fetch section types as key-value pairs (id => name)
+        $sectionTypes = SectionType::pluck('name', 'id');
+
+        // Pass data to the view
         return view('admin.sections.edit', compact('section', 'page', 'subPage', 'sectionTypes'));
     }
+
 
     /**
      * Update the specified Section in storage.

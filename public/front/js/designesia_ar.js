@@ -1125,9 +1125,9 @@
         // rtl begin //
           if (rtl_mode=="on") {
                     jQuery("body").addClass('rtl');
-                     jQuery("#bootstrap").attr("href", 'css/bootstrap-rtl.min.css');
-                     jQuery("#bootstrap-grid").attr("href", 'css/bootstrap-grid-rtl.min.css');
-                     jQuery("#bootstrap-reboot").attr("href", 'css/bootstrap-reboot-rtl.min.css');
+                     jQuery("#bootstrap").attr("href", 'front/css/bootstrap-rtl.min.css');
+                     jQuery("#bootstrap-grid").attr("href", 'front/css/bootstrap-grid-rtl.min.css');
+                     jQuery("#bootstrap-reboot").attr("href", 'front/css/bootstrap-reboot-rtl.min.css');
             };
 		 // rtl end // 
 		
@@ -1141,9 +1141,9 @@
              switch (iteration) {
                  case 1:
                      jQuery("body").addClass('rtl');
-                     jQuery("#bootstrap").attr("href", 'css/bootstrap-rtl.min.css');
-                     jQuery("#bootstrap-grid").attr("href", 'css/bootstrap-grid-rtl.min.css');
-                     jQuery("#bootstrap-reboot").attr("href", 'css/bootstrap-reboot-rtl.min.css');
+                     jQuery("#bootstrap").attr("href", 'front/css/bootstrap-rtl.min.css');
+                     jQuery("#bootstrap-grid").attr("href", 'front/css/bootstrap-grid-rtl.min.css');
+                     jQuery("#bootstrap-reboot").attr("href", 'front/css/bootstrap-reboot-rtl.min.css');
                      jQuery(this).find(".sc-val").text('Click to Disable');
                      break;
                  case 2:

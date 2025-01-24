@@ -108,12 +108,12 @@
                 </a>
             </li>
 
-          <!--  <li class="menu-item">
+           <li class="menu-item">
                 <a href="{{ route('services.index') }}" class="menu-link {{ Request::is('services') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined menu-icon">handyman</span>
-                    <span class="title">Sections</span>
+                    <span class="material-symbols-outlined menu-icon">local_activity</span>
+                    <span class="title">Home Sections</span>
                 </a>
-            </li>-->
+            </li>
 
             <li class="menu-item">
                 <a href="{{ route('categories.index') }}" class="menu-link {{ Request::is('categories') ? 'active' : '' }}">
