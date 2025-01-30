@@ -49,10 +49,16 @@
                     </div>
                     <div class="de-flex-col">
 
-                        <div class="h-phone"><span>Need&nbsp;Help?</span><i class="fa fa-phone id-color-secondary"></i>
+                        <div class="h-phone"><span>
+
+                             {{ app()->getLocale() == 'ar' ? 'تواصل معنا' : 'Call Us' }}
+                            </span><i class="fa fa-phone id-color-secondary"></i>
                             @foreach ($global_settings as $item)
-                                @if ($item['name'] === 'phone')
-                                    {{ $item['value'] }}
+                                @if (
+                                    (app()->getLocale() == 'ar' && $item['name'] === 'phone_ar') ||
+                                    (app()->getLocale() == 'en' && $item['name'] === 'phone_en')
+                                )
+                                    <a style="color: white" href="tel:{{ $item['value'] }}">{{ $item['value'] }}</a>
                                 @endif
                             @endforeach
 

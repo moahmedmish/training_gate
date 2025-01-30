@@ -3,7 +3,12 @@
 <head>
     @include('header')
 </head>
-<body class="hide-rtl">
+
+@if ( app()->getLocale() != 'ar')
+    <body class="hide-rtl">
+    @elseif ( app()->getLocale() == 'ar')
+        <body class="rtl" style="display: flex; flex-direction: column; background-size: cover;">
+@endif
 <div id="wrapper">
 
     @include('topbar')

@@ -10,7 +10,7 @@ class Service extends Model
 
     public $fillable = [
         'image',
-//        'icon',
+        'position',
         'banner',
         'title_ar',
         'title_en',
@@ -23,6 +23,7 @@ class Service extends Model
 
     protected $casts = [
         'id' => 'integer',
+        'position' => 'integer',
         'image' => 'string',
 //        'icon' => 'string',
         'banner' => 'string',
@@ -44,6 +45,7 @@ class Service extends Model
         'summary_en' => 'required|string|string',
         'desc_ar' => 'string|string',
         'desc_en' => 'string',
+        'position' => 'integer',
         'publish' => 'in:0,1',
         'created_at' => 'nullable|nullable',
         'updated_at' => 'nullable|nullable'
@@ -60,6 +62,7 @@ class Service extends Model
         'desc_ar' => 'string|string',
         'desc_en' => 'string',
         'publish' => 'in:0,1',
+        'position' => 'integer',
         'created_at' => 'nullable|nullable',
         'updated_at' => 'nullable|nullable'
     ];

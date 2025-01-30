@@ -58,7 +58,7 @@ class HomeController extends Controller
 
         return view('home')
             ->with('sliders', $sliders)
-            //->with('services', $services)
+            ->with('services', $services)
             //->with('galleries', $galleries)
             //->with('projects', $projects)
             ->with('clients', $clients)

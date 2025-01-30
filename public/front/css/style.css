@@ -78,6 +78,41 @@
 
 /* ================================================== */
 
+/* Ensure the body respects RTL direction and uses Flexbox */
+body.rtl {
+	display: flex;             /* Enable Flexbox */
+	flex-direction: column;    /* Stack elements vertically */
+	direction: rtl;            /* Set right-to-left direction */
+	align-items: flex-start;   /* Align items from right to left */
+	justify-content: flex-start; /* Adjust vertical alignment */
+	background-size: cover;    /* Ensure background behaves as expected */
+	margin: 0;                 /* Reset margin */
+	padding: 0;                /* Reset padding */
+}
+
+/* General styles for RTL containers */
+
+/* Text alignment for RTL */
+.rtl, .rtl * {
+	text-align: right;
+}
+
+/* Adjust for menus and navigation */
+.rtl #mainmenu {
+	display: flex;
+	justify-content: flex-end;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	direction: rtl;
+	font-size: 20px;
+	font-family: cursive;
+}
+
+
+
+
+
 html {
 	overflow-x: hidden;
 	padding: 0;

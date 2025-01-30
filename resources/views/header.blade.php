@@ -33,7 +33,12 @@
 
     <!-- color scheme -->
     <link id="colors" href="{{ asset('front/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('front/css/coloring.css') }}" rel="stylesheet" type="text/css"/>
+    @if (app()->getLocale() != 'ar')
+        <link href="{{ asset('front/css/coloring.css') }}" rel="stylesheet" type="text/css"/>
+    @elseif (app()->getLocale() == 'ar')
+        <link href="{{ asset('front/css/coloring_ar.css') }}" rel="stylesheet" type="text/css"/>
+    @endif
+
 
     <!-- RS5.0 Stylesheet -->
     <link rel="stylesheet" href="{{ asset('front/revolution/css/settings.css') }}" type="text/css">

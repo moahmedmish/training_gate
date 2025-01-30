@@ -35,8 +35,8 @@
                     <div class="tp-caption" data-x="0" data-y="450" data-width="none" data-height="none"
                          data-whitespace="nowrap" data-transform_in="y:100px;opacity:0;s:500;e:Power2.easeOut;"
                          data-transform_out="opacity:0;y:-100;s:800;e:Power2.easeInOut;" data-start="800">
-                        <a class="btn-custom invert" href="{{ $slider['video_url'] ?? '#' }}">Join Us</a>&nbsp;
-                        <a class="btn-border" href="download.html">Learn More</a>
+                      <!--  <a class="btn-custom invert" href="{{ $slider['video_url'] ?? '#' }}">Join Us</a>&nbsp;
+                        <a class="btn-border" href="download.html">Learn More</a> -->
                     </div>
                 </li>
             @endforeach

@@ -106,6 +106,28 @@
         </div>
     </div>
 
+    <!-- Service Position Field -->
+    <div class="col-lg-6">
+        <div class="form-group mb-4">
+            {!! Form::label('position', 'Position:', ['class' => 'label text-secondary']) !!}
+            <div class="form-group position-relative">
+                {!! Form::select('position',
+                    [
+                        '1' => 'Position 1',
+                        '2' => 'Position 2',
+                        '3' => 'Position 3',
+                        '4' => 'Position 4',
+                        '5' => 'Position 5',
+                        '6' => 'Position 6'
+                    ],
+                    null,
+                    ['class' => 'form-control text-dark ps-5 h-55', 'placeholder' => 'Select Position']
+                ) !!}
+                <i class="ri-sort-asc position-absolute top-50 start-0 translate-middle-y fs-20 ps-20"></i>
+            </div>
+        </div>
+    </div>
+
     <!-- Publish Field -->
     <div class="col-lg-6">
         <div class="form-group mb-4">

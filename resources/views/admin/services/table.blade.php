@@ -6,6 +6,7 @@
                 <th>Banner</th>
                 <th>Title Ar</th>
                 <th>Title En</th>
+                <th>Position</th>
                 <th>Summary Ar</th>
                 <th>Summary En</th>
                 <th>Publish</th>
@@ -28,6 +29,30 @@
 
                     <td>{{ $service->title_ar }}</td>
                     <td>{{ $service->title_en }}</td>
+                    <td>
+                        @switch($service->position)
+                            @case(1)
+                                Position 1
+                                @break
+                            @case(2)
+                                Position 2
+                                @break
+                            @case(3)
+                                Position 3
+                                @break
+                            @case(4)
+                                Position 4
+                                @break
+                            @case(5)
+                                Position 5
+                                @break
+                            @case(6)
+                                Position 6
+                                @break
+                            @default
+                                -
+                        @endswitch
+                    </td>
                     <td>{{ \Illuminate\Support\Str::words($service->summary_ar, 5, ' ...') }}</td>
                     <td>{{ \Illuminate\Support\Str::words($service->summary_en, 5, ' ...') }}</td>
                     @if($service->publish)
