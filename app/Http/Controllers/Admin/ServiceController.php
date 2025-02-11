@@ -25,7 +25,7 @@ class ServiceController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $services = $this->serviceRepository->paginate(10);
+        $services = $this->serviceRepository->paginate(50);
 
         return view('admin.services.index')
             ->with('services', $services);

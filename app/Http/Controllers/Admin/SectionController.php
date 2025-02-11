@@ -41,10 +41,15 @@ class SectionController extends AppBaseController
     {
         $page = Page::findOrFail($page_id);
         $subPage = SubPage::findOrFail($sub_page_id);
-        $sectionTypes = SectionType::all(); // Fetch all section types
+
+        // Transform section types into 'value' => 'name'
+        $sectionTypes = SectionType::all()->mapWithKeys(function ($type) {
+            return [json_encode($type) => $type->name];
+        });
 
         return view('admin.sections.create', compact('page', 'subPage', 'sectionTypes'));
     }
+
 
     /**
      * Store a newly created Section in storage.

@@ -5,11 +5,22 @@
             <div class="col-md-3">
                 <span class="p-title invert">TGI facts</span><br>
                 <h2>
-                    What TGI did?
+                    @if (app()->getLocale() == 'ar')
+                        ما الدور الذى ساعدنا فيه؟
+                    @elseif (app()->getLocale() != 'ar')
+                        What TGI did?
+                    @endif
+
                 </h2>
                 <div class="small-border sm-left"></div>
-                <p>At TGI, our mission is to empower people with disabilities by enhancing various aspects of their lives. We work towards inclusion,
-                    , improved quality of life..</p>
+                <p>
+                    @if (app()->getLocale() != 'ar')
+                        At TGI, our mission is to empower people with disabilities by enhancing various aspects of their lives. We work towards inclusion,
+                        , improved quality of life
+                    @elseif (app()->getLocale() == 'ar')
+                        تتمثل رسالتنا في تمكين الأشخاص ذوي الإعاقة من خلال تحسين مختلف جوانب حياتهم. نسعى لتحقيق الدمج وتعزيز جودة الحياة وتحقيق تأثير إيجابي شامل
+                    @endif
+                </p>
             </div>
 
             <div class="col-md-8 offset-md-1">
@@ -26,7 +37,14 @@
                                     @endphp
                                     <span class="timer" data-to="{{ $number }}" data-speed="3000">0</span>{{ $suffix }}
                                 </h3>
-                                <h5 class="id-color">{{ $stat['name'] }}</h5>
+                                <h5 class="id-color">
+                                    @if (app()->getLocale() != 'ar')
+                                        {{ $stat['name'] }}
+                                    @elseif (app()->getLocale() == 'ar')
+                                        {{ $stat['value_ar'] }}
+                                    @endif
+
+                                </h5>
                             </div>
                         </div>
                     @endforeach

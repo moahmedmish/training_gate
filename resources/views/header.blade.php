@@ -4,8 +4,8 @@
     <meta charset="utf-8"/>
     @php
         $locale = app()->getLocale();
-        $siteTitleKey = $locale === 'ar' ? 'site_title_ar' : 'site_title_en';
-        $siteTitle = collect($global_settings)->firstWhere('name', $siteTitleKey)['value'] ?? 'Priva - Insurance Company Website Template';
+        $siteTitleKey = $locale === 'ar' ? 'value_ar' : 'value';
+        $siteTitle = collect($global_settings)->firstWhere('name', 'site_title')[$siteTitleKey] ?? '';
     @endphp
     <title>@yield('title', $siteTitle)</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>

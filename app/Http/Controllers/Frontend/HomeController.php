@@ -12,6 +12,7 @@ use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\PhotoSetting;
+use App\Models\SubPage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -44,6 +45,20 @@ class HomeController extends Controller
             ->orderBy('pages.menu_order')
             ->get()->toArray();
 
+        $footer_menus = Page::select('pages.*')
+            ->where('pages.publish', '1')
+            ->where('show_footer', '1')
+            ->orderBy('pages.menu_order')
+            ->limit(5)
+            ->get()->toArray();
+
+        $submenus = SubPage::select('sub_pages.*')
+            ->where('publish', '1')
+            ->orderBy('menu_order')
+            ->limit(5)
+            ->get()->toArray();
+
+
         $sliders = Slider::where('publish', 1)->get();
         $projects = Project::all()->toArray();
         $services = Service::where('publish', 1)->get();
@@ -65,6 +80,8 @@ class HomeController extends Controller
             //->with('members', $members)
             ->with('logos', $logos)
             ->with('menus', $menus)
+            ->with('footer_menus',$footer_menus )
+            ->with('submenus',$submenus)
             ->with('facts_settings', $facts_setting)
             ->with('global_settings',$global_setting);
     }

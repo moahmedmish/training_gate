@@ -4,6 +4,7 @@
             <tr>
                 <th>Name</th>
                 <th>Value</th>
+                <th>Name_ar</th>
 {{--                <th>Path</th>--}}
                 <th colspan="3">Actions</th>
             </tr>
@@ -13,6 +14,7 @@
                 <tr>
                     <td>{{ $setting->name }}</td>
                     <td>{{ $setting->value }}</td>
+                    <td>{{ $setting->value_ar }}</td>
 {{--                    <td>{{ $setting->path }}</td>--}}
                     <td>
                         {!! Form::open(['route' => ['settings.destroy', $setting->id], 'method' => 'delete']) !!}

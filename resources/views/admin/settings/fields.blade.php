@@ -10,6 +10,12 @@
     {!! Form::text('value', null, ['class' => 'form-control', 'required', 'maxlength' => 500, 'maxlength' => 500]) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('value_ar', 'Value AR:') !!}
+    {!! Form::text('value_ar', null, ['class' => 'form-control', 'maxlength' => 500]) !!}
+</div>
+
+
 {{--<!-- Path Field -->--}}
 {{--<div class="form-group col-sm-6">--}}
 {{--    {!! Form::label('path', 'Path:') !!}--}}

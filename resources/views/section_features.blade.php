@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             @foreach($services as $ser)
-                @if (in_array($ser['title_en'], ['AboutUs']))
+                @if (in_array($ser['position'], ['3']))
             <!-- Content Section -->
             <div class="col-lg-5 offset-lg-7">
                 <span class="p-title invert">TGI</span><br>

@@ -1,7 +1,7 @@
 <section id="section-highlight" class="relative" data-bgcolor="#F2F6FE">
     <div class="container">
         @foreach($services as $ser)
-            @if (in_array($ser['title_en'], ['welcome']))
+            @if (in_array($ser['position'], ['1']))
             <div class="row">
                 <div class="col-md-6">
                     <span class="p-title invert">

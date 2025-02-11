@@ -16,15 +16,21 @@
     {!! Form::label('name', 'Name:') !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
 </div>
+
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('section_type_id', 'Section Type:') !!}
-    {!! Form::select(
-        'section_type_id',
-        $sectionTypes,
-        isset($section) ? $section->section_type_id : null, // Pre-select for edit, null for add
-        ['class' => 'form-control', 'placeholder' => 'Select a type', 'required']
-    ) !!}
+    <select name="section_type_id" class="form-control" required>
+        <option value="" disabled>Select a type</option>
+        @foreach($sectionTypes as $id => $name)
+            <option value="{{ $id }}"
+                    {{ isset($section) && $section->section_type_id == $id ? 'selected' : '' }}>
+                {{ $name }}
+            </option>
+        @endforeach
+    </select>
 </div>
+
+
 
 
 
