@@ -96,4 +96,44 @@
             {!! Form::label('on_menu', 'Show on Menu', ['class' => 'form-check-label']) !!}
         </div>
     </div>
+
+    <!-- Service Summary Ar Field -->
+    <div class="col-lg-6">
+        <div class="form-group mb-4">
+            {!! Form::label('summary_ar', 'Page Summary (Arabic):', ['class' => 'label text-secondary']) !!}
+            <div class="form-group position-relative">
+                {!! Form::textarea('summary_ar', null, ['class' => 'form-control text-dark ps-5', 'required', 'placeholder' => 'Enter Page Summary in Arabic']) !!}
+            </div>
+        </div>
+    </div>
+
+    <!-- page Summary En Field -->
+    <div class="col-lg-6">
+        <div class="form-group mb-4">
+            {!! Form::label('summary_en', 'page Summary (English):', ['class' => 'label text-secondary']) !!}
+            <div class="form-group position-relative">
+                {!! Form::textarea('summary_en', null, ['class' => 'form-control text-dark ps-5', 'required', 'placeholder' => 'Enter Page Summary in English']) !!}
+            </div>
+        </div>
+    </div>
+
+    <!-- page Description Ar Field -->
+    <div class="col-lg-12">
+        <div class="form-group mb-4">
+            {!! Form::label('desc_ar', 'Page Description (Arabic):', ['class' => 'label text-secondary']) !!}
+            <div class="form-group position-relative">
+                {!! Form::textarea('desc_ar', null, ['class' => 'form-control text-dark ps-5', 'required', 'placeholder' => 'Enter Page Description in Arabic']) !!}
+            </div>
+        </div>
+    </div>
+
+    <!-- page Description En Field -->
+    <div class="col-lg-12">
+        <div class="form-group mb-4">
+            {!! Form::label('desc_en', 'Page Description (English):', ['class' => 'label text-secondary']) !!}
+            <div class="form-group position-relative">
+                {!! Form::textarea('desc_en', null, ['class' => 'form-control text-dark ps-5', 'required', 'placeholder' => 'Enter Page Description in English']) !!}
+            </div>
+        </div>
+    </div>
 </div>

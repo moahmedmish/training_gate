@@ -19,6 +19,10 @@ class Page extends Model
         'route_name',
         'show_footer',
         'on_menu',
+        'summary_ar',
+        'summary_en',
+        'desc_ar',
+        'desc_en',
     ];
 
     protected $casts = [
@@ -32,6 +36,10 @@ class Page extends Model
         'show_footer' => 'boolean',
         'on_menu' => 'integer',
         'menu_order' => 'integer',
+        'summary_ar' => 'string',
+        'summary_en' => 'string',
+        'desc_ar' => 'string',
+        'desc_en' => 'string',
     ];
 
     public static array $rules = [
@@ -45,6 +53,10 @@ class Page extends Model
         'route_name' => 'nullable|string|max:255',
         'show_footer' => 'in:0,1',
         'on_menu' => 'nullable|integer',
+        'summary_ar' => 'required|string|string',
+        'summary_en' => 'required|string|string',
+        'desc_ar' => 'string',
+        'desc_en' => 'string',
     ];
 
     public function subPages()
