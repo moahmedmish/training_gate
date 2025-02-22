@@ -71,7 +71,7 @@ class HomeController extends Controller
 
         $members = Member::all()->take(3);
 
-        return view('home')
+        return view('inner')
             ->with('sliders', $sliders)
             ->with('services', $services)
             //->with('galleries', $galleries)

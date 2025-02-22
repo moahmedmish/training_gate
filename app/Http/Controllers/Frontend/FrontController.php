@@ -41,7 +41,7 @@ class FrontController extends Controller
         $members = Member::all();
 
 
-        return view('about')
+        return view('inner')
             ->with('about', $about)
             ->with('yOfExperienceCount', $yOfExperienceCount)
             ->with('typesOfNaturalStoneCount', $typesOfNaturalStoneCount)
